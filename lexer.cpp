@@ -2,7 +2,11 @@
 #include <string>
 #include <fstream>
 #include <iomanip>
+#include <cstring>
+
 using namespace std;
+
+
 
 // enum for token types
 enum tokenType { IDENTIFIER, INTEGER, KEYWORD, OPERATOR, REAL, SEPARATOR, STRING, UNKNOWN, END_OF_FILE };
@@ -54,6 +58,25 @@ tokenType lexer(string token) {
     }
 }
 
+
+string removespace(string tokenInput) {
+
+    for (int i = 0; i < tokenInput.length(); i++) {
+
+        if (tokenInput[i] == ' ') { 
+
+            tokenInput.erase(tokenInput.begin()+i); 
+            i--; 
+        }
+    }
+            cout << tokenInput << endl;
+
+    return tokenInput; 
+
+}
+
+
+
 /************************************************************************
  * main()
  * 
@@ -66,14 +89,18 @@ tokenType lexer(string token) {
 ************************************************************************/
 int main()
 {
+
     // open input_scode.txt to read in a lexeme
     ifstream inputFile; 
     inputFile.open("input_scode.txt");
     // open output_scode.txt to output the lexeme and token
+
+
     ofstream outputFile;
     outputFile.open("output.txt");
     // create a token
     string tokenInput = "";
+
     outputFile << "Token" << " \t\t " << "Lexeme" << endl;
     outputFile << "-----------------------" << endl;
 
@@ -83,14 +110,72 @@ int main()
      ************************************************************************/
     while (getline(inputFile, tokenInput))
     {
-         // call lexer function to determine token type
+
+
+        //convert input string into char[] array 
+         string NoSpaceString = "";
+         char inputCh[tokenInput.length()];
+
+        // Remove Spaces in between characters 
+         NoSpaceString = removespace(tokenInput); 
+
+        //string array - no space
+         string sub[NoSpaceString.length()];
+
+         //char array - w space
+         char input[tokenInput.length()];
+
+        string sendit; 
+
+
+    // for loop to convert string to string into char 
+     for (int i = 0; i < tokenInput.length(); i++) {
+
+       input[i] = tokenInput[i];
+    }
+
+
+    // need to create a loop to seperate string into words. 
+    char *p; 
+    p = strtok(input," ");
+    cout << "#1: "<< p << "\n" << endl; 
+
+    p = strtok(NULL, " ");
+    cout << "#2: " << p << "\n" << endl; 
+
+    p = strtok(NULL, " ");
+    cout << "#3: " << p << "\n" << endl; 
+
+    p = strtok(NULL, " ");
+    cout << "#4: " << p << "\n" << endl; 
+
+    p = strtok(NULL, " ");
+    cout << "#5: " << p << "\n" << endl; 
+
+
+
+    for (int i = 0; i < NoSpaceString.length(); i++) {
+
+        sub[i] = NoSpaceString[i]; 
+        inputCh[i] = NoSpaceString[i];
+        cout << "Char Array  = " << inputCh[i] << endl;
+        cout << "String Array  = " << sub[i] << "\n" << endl;
+
+        sendit = NoSpaceString.substr(i); 
+    }
+
+
+
+   
+      // call lexer function to determine token type
         tokenType token = lexer(tokenInput);
+
         // output the lexeme and token to output_scode.txt
-        if( token == IDENTIFIER) {
-            outputFile << setw(15) << left << "Identifier" << setw(15) << left << tokenInput << endl;
+        if(token == IDENTIFIER) {
+            outputFile << setw(15) << left << "Identifier" << setw(15) << left << tokenInput << "\n" << endl;
         }
         else if (token == INTEGER) {
-            outputFile << setw(15) << left << "Integer" << setw(15) << left << tokenInput << endl;
+            outputFile << setw(15) << left << "Integer" << setw(15) << left << tokenInput << "\n"<< endl;
         }
         else if (token == KEYWORD) {
             outputFile << setw(15) << left << "Keyword" << setw(15) << left << tokenInput << endl;
@@ -119,3 +204,5 @@ int main()
     outputFile.close();
     return 0;
 }
+
+
