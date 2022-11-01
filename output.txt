@@ -1,0 +1,12 @@
+Token 		 Lexeme
+---------------------
+Keyword        while          
+Separator      (              
+Identifier     s              
+Unknown        <              
+Identifier     upper          
+Unknown        )              
+Identifier     t              
+Unknown        =              
+Integer        33.00          
+Unknown        ;              
