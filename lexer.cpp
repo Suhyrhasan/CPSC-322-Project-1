@@ -75,7 +75,7 @@ int main()
     // create a token
     string tokenInput = "";
     outputFile << "Token" << " \t\t " << "Lexeme" << endl;
-    outputFile << "---------------------" << endl;
+    outputFile << "-----------------------" << endl;
 
     /************************************************************************
      * This while loop will read in a lexeme from input_scode.txt and then
