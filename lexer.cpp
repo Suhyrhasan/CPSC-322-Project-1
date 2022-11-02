@@ -6,8 +6,6 @@
 
 using namespace std;
 
-
-
 // enum for token types
 enum tokenType { IDENTIFIER, INTEGER, KEYWORD, OPERATOR, REAL, SEPARATOR, STRING, UNKNOWN, END_OF_FILE };
 /************************************************************************
@@ -130,7 +128,6 @@ int main()
 
     // for loop to convert string to string into char 
      for (int i = 0; i < tokenInput.length(); i++) {
-
        input[i] = tokenInput[i];
     }
 
@@ -138,8 +135,22 @@ int main()
     // need to create a loop to seperate string into words. 
     char *p; 
     p = strtok(input," ");
-    cout << "#1: "<< p << "\n" << endl; 
+    //cout << "#1: "<< p << "\n" << endl; 
 
+    int i = 1; 
+    while (p != NULL) {
+
+        cout << i << ") SubString = " << p << "\n" << endl; 
+        i++; 
+
+        // strtok = static variable --> stores state of string in the previous function call. 
+        p = strtok(NULL, " ");
+
+        //p = strtok(NULL, "");
+
+    }
+
+/*
     p = strtok(NULL, " ");
     cout << "#2: " << p << "\n" << endl; 
 
@@ -151,7 +162,7 @@ int main()
 
     p = strtok(NULL, " ");
     cout << "#5: " << p << "\n" << endl; 
-
+*/
 
 
     for (int i = 0; i < NoSpaceString.length(); i++) {
@@ -165,8 +176,6 @@ int main()
     }
 
 
-
-   
       // call lexer function to determine token type
         tokenType token = lexer(tokenInput);
 
