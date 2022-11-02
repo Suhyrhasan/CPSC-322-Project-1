@@ -8,7 +8,7 @@ Suhyr Hasan suhyrhasan@csu.fullerton.edu
 
 Nishan Thakar nishantt91@csu.fullerton.edu
 
-Jackie Li
+Jackie Li jli306@csu.fullerton.edu
 
 ## How to Run
 To clone repository run the following command in your terminal:
