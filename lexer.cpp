@@ -2,6 +2,8 @@
 #include <string>
 #include <fstream>
 #include <iomanip>
+#include <stdio.h>
+#include <string.h>
 using namespace std;
 
 // enum for token types
@@ -83,6 +85,7 @@ int main()
      ************************************************************************/
     while (getline(inputFile, tokenInput))
     {
+
          // call lexer function to determine token type
         tokenType token = lexer(tokenInput);
         // output the lexeme and token to output_scode.txt
