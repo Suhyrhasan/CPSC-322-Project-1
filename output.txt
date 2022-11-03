@@ -1,12 +1,12 @@
-Token 		 Lexeme
----------------------
+Token  	 	   Lexeme
+-----------------------
 Keyword        while          
 Separator      (              
 Identifier     s              
-Unknown        <              
-Identifier     upper          
-Unknown        )              
+Operator       <              
+Keyword        upper          
+Separator      )              
 Identifier     t              
-Unknown        =              
+Operator       =              
 Integer        33.00          
-Unknown        ;              
+Separator      ;              
