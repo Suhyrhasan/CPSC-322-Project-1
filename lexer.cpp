@@ -76,7 +76,7 @@ int main()
     outputFile.open("output.txt");
     // create a token
     string tokenInput = "";
-    outputFile << "Token " << " \t \t " << "  Lexeme" << endl;
+    outputFile << "Token" << " \t \t " << "Lexeme" << endl;
     outputFile << "-----------------------" << endl;
 
     /************************************************************************
