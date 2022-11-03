@@ -83,7 +83,7 @@ int main()
      * This while loop will read in a lexeme from input_scode.txt and then
      * output the token and lexeme to output_scode.txt until the end of file
      ************************************************************************/
-    while (getline(inputFile, tokenInput))
+    while ( inputFile >> tokenInput ) 
     {
 
          // call lexer function to determine token type
