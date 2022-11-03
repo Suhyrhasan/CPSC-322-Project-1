@@ -1,4 +1,4 @@
-Token  	 	   Lexeme
+Token  	 	  Lexeme
 -----------------------
 Keyword        while          
 Separator      (              
