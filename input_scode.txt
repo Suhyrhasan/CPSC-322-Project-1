@@ -1,1 +1,1 @@
-while ( s < upper ) t = 33.00 ; 
+while(s < upper)t = 33.00; 

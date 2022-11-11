@@ -55,7 +55,17 @@ tokenType lexer(string token) {
         return UNKNOWN;
     }
 }
-
+/************************************************************************
+ * void addToken(string tokenInput, ofstream& outputFile)
+ *
+ * Function; This function will take a string and output the token type 
+ *          to the output file
+ *--------------------------------------------------------------------------
+ * Parameter: tokenInput  - The string to be checked for token type
+ *            outputFile  - The output file to write to
+ *-----------------------------------------------------------------------
+ * Return: None
+************************************************************************/
 void addToken(string tokenInput, ofstream& outputFile) {
     tokenType token = lexer(tokenInput);
     // output the lexeme and token to output_scode.txt
@@ -84,13 +94,23 @@ void addToken(string tokenInput, ofstream& outputFile) {
         outputFile << setw(15) << left << "Unknown" << setw(15) << left << tokenInput << endl;
     }
 }
-
+/************************************************************************
+ * bool isSeperator(char c) 
+ *
+ * Function; This function will take a character and return true if it is
+ *         a separator and false if it is not
+ *--------------------------------------------------------------------------
+ * Parameter: c  - The character to be checked
+ *-----------------------------------------------------------------------
+ * Return: bool - True if the character is a separator, false if not
+************************************************************************/
 bool isSeperator(char c) {
     if (c == '(' || c == ')' || c == '{' || c == '}' || c == '[' || c == ']' || c == ';' || c == ',') {
         return true;
     }
     return false;
 }
+
 /************************************************************************
  * main()
  *
@@ -135,13 +155,15 @@ int main()
                 buffer.clear();
             }
         }
-        //If character is a symbol determine it's meaning
+        //If character is a symbol determine it's meaning 
         if (isSeperator(c)) {
             if (!buffer.empty()) {
                 addToken(buffer, outputFile);
                 buffer.clear();
             }
-            addToken({ c }, outputFile);
+            //If character is a double quote read in the string
+            addToken(string(1, c), outputFile);
+            
         }
     }
     // close files
